@@ -14,37 +14,37 @@
 
 <ion-content padding>
 
-  <ion-card>
+  <ion-card *ngFor="let filme of lista_filmes">
       <ion-item>
         <ion-avatar item-start>
           <img src="assets/img/avatar.png">
         </ion-avatar>
-        <h2 class="feed_tittle">{{nome_usuario}}</h2>
-        <p>November 5, 1955</p>
+        <h2 class="feed_tittle">{{ filme.title }}</h2>
+        <p>{{ filme.release_date }}</p>
       </ion-item>
 
-      <img src="assets/img/car.png">
+      <img src="https://image.tmdb.org/t/p/w500/{{filme.backdrop_path}}">
 
       <ion-card-content>
-        <p>Wait a minute. Wait a minute, Doc. Uhhh... Are you telling me that you built a time machine... out of a DeLorean?! Whoa. This is heavy.</p>
+        <p>{{ filme.overview }}</p>
       </ion-card-content>
 
       <ion-row>
         <ion-col>
           <button ion-button icon-left clear small>
             <ion-icon name="thumbs-up"></ion-icon>
-            <div>12 Likes</div>
+            <div>{{objecto_feed.qtd_likes}} Likes</div>
           </button>
         </ion-col>
         <ion-col>
           <button ion-button icon-left clear small>
             <ion-icon name="text"></ion-icon>
-            <div>4 Comments</div>
+            <div>{{objecto_feed.qtd_comments}} Comments</div>
           </button>
         </ion-col>
         <ion-col center text-center>
           <ion-note>
-            11h ago
+            {{objecto_feed.time}}
           </ion-note>
         </ion-col>
       </ion-row>
